@@ -3,7 +3,16 @@
 import React, { useState } from 'react';
 import { Rocket, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const projects = [
+type Project = {
+  title: string
+  role: string
+  description: string
+  tech: string[]
+  color: string
+  img: string
+}
+
+const projects: Project[] = [
   {
     title: 'Daring Membaca',
     role: 'Full Stack Developer',
@@ -37,8 +46,7 @@ const projects = [
     img: '/projects/PPM.png'
   },
 ];
-
-function ProjectCard({ project }) {
+function ProjectCard({ project }: { project: Project }) {
   return (
     <div
       className={`h-full bg-white border-4 ${project.color} shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-2 overflow-hidden flex flex-col`}
