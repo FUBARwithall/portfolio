@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Right / Bottom Section */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/absolutepraya/portfolio"
+              href="https://github.com/FUBARwithall/portfolio.git"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 underline underline-offset-4 hover:text-blue-600 transition-colors"
