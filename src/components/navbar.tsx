@@ -18,9 +18,9 @@ export default function Navbar({ activeSection, scrollToSection }: NavbarProps) 
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setHidden(true); // scrolling down
+        setHidden(true);
       } else {
-        setHidden(false); // scrolling up
+        setHidden(false);
       }
 
       setLastScrollY(currentScrollY);
@@ -35,6 +35,8 @@ export default function Navbar({ activeSection, scrollToSection }: NavbarProps) 
     setIsMenuOpen(false);
   };
 
+  const navSections = ['skills', 'education', 'projects', 'social'];
+
   return (
     <nav
       className={`fixed w-full bg-white/90 backdrop-blur-sm border-b-4 border-blue-600 z-50
@@ -44,15 +46,22 @@ export default function Navbar({ activeSection, scrollToSection }: NavbarProps) 
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold">
+          
+          {/* Logo / Home */}
+          <button
+            onClick={() => scrollToSection('home')}
+            className={`text-2xl font-bold transition-colors ${
+              activeSection === 'home' ? 'text-blue-600' : 'text-black'
+            }`}
+          >
             <span className="text-blue-600">&lt;</span>
-            <span className="text-black">My Portfolio</span>
+            <span>My Portfolio</span>
             <span className="text-blue-600">/&gt;</span>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-6">
-            {['home', 'skills', 'education', 'projects', 'social'].map((section) => (
+            {navSections.map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
@@ -78,7 +87,7 @@ export default function Navbar({ activeSection, scrollToSection }: NavbarProps) 
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t-2 border-blue-600">
             <div className="flex flex-col gap-4 mt-4">
-              {['home', 'skills', 'education', 'projects', 'social'].map((section) => (
+              {navSections.map((section) => (
                 <button
                   key={section}
                   onClick={() => handleNavClick(section)}

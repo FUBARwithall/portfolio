@@ -3,37 +3,8 @@
 import React, { useState } from 'react';
 import { Code } from 'lucide-react';
 import Image from 'next/image';
-import { Marquee } from "@/components/ui/marquee"
-
-type Skill = {
-  name: string;
-  picture?: string;
-};
-
-const languages: Skill[] = [
-  { name: 'Python', picture: '/skills/language/python-logo.png' },
-  { name: 'Java', picture: '/skills/language/java-logo.png' },
-  { name: 'PHP', picture: '/skills/language/php-logo.png' },
-  { name: 'Dart', picture: '/skills/language/dart-logo.png' },
-  { name: 'HTML', picture: '/skills/language/html-logo.png' },
-  { name: 'CSS', picture: '/skills/language/css-logo.png' },
-];
-
-const frameworks: Skill[] = [
-  { name: 'Flutter', picture: '/skills/framework/flutter-logo.png' },
-  { name: 'Next.js', picture: '/skills/framework/next.js-logo.png' },
-  { name: 'Flask', picture: '/skills/framework/flask-logo.png' },
-  { name: 'Laravel', picture: '/skills/framework/laravel-logo.png' },
-];
-
-const tools: Skill[] = [
-  { name: 'Firebase', picture: '/skills/tool/firebase-logo.png' },
-  { name: 'Canva', picture: '/skills/tool/canva-logo.png' },
-  { name: 'Figma', picture: '/skills/tool/figma-logo.png' },
-  { name: 'VS Code', picture: '/skills/tool/vs code-logo.png' },
-  { name: 'GitHub', picture: '/skills/tool/github-logo.png' },
-  { name: 'Postman', picture: '/skills/tool/postman-logo.png' },
-];
+import { Marquee } from "../components/ui/marquee";
+import { languages, frameworks, tools, type Skill } from '../data/skills'
 
 function SkillCard({ item }: { item: Skill }) {
   const [isHovered, setIsHovered] = useState(false);

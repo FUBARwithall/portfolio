@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import Navbar from './components/navbar';
-import Hero from './components/hero';
-import Skills from './components/skills';
-import Education from './components/education';
-import Projects from './components/projects';
-import Social from './components/social';
-import Footer from './components/footer';
+import Navbar from '../src/components/navbar';
+import Hero from '../src/components/hero';
+import Skills from '../src/components/skills';
+import Education from '../src/components/education';
+import Projects from '../src/components/projects';
+import Social from '../src/components/social';
+import Footer from '../src/components/footer';
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');

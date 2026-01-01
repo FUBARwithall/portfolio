@@ -2,50 +2,8 @@
 
 import React, { useState } from 'react';
 import { Rocket, ChevronLeft, ChevronRight } from 'lucide-react';
+import { projects, type Project } from '../data/projects'
 
-type Project = {
-  title: string
-  role: string
-  description: string
-  tech: string[]
-  color: string
-  img: string
-}
-
-const projects: Project[] = [
-  {
-    title: 'Daring Membaca',
-    role: 'Full Stack Developer',
-    description: 'A simple and intuitive java based library app for those who want to read books.',
-    tech: ['Java', 'MongoDB'],
-    color: 'border-green-500',
-    img: '/projects/Daring membaca.png'
-  },
-  {
-    title: 'EN-ID Translator',
-    role: 'Full Stack Developer',
-    description: 'AI powered English to Indonesian translator using Dataset from SEACROWD and Helsinki model for training.',
-    tech: ['Python', 'PyTorch', 'Transformers'],
-    color: 'border-red-500',
-    img: '/projects/EN - ID Translator.png'
-  },
-  {
-    title: 'KueQ',
-    role: 'Full Stack Developer',
-    description: 'E-commerce for selling electronic products with a user-friendly interface and secure payment options.',
-    tech: ['Laravel', 'PHP', 'MySQL', 'Bootstrap'],
-    color: 'border-yellow-500',
-    img: '/projects/KueQ.png'
-  },
-{
-    title: 'PPM',
-    role: 'Full Stack Developer',
-    description: 'A web profile project for helping local businesses to promote their products.',
-    tech: ['FLask', 'Sqlite'],
-    color: 'border-yellow-500',
-    img: '/projects/PPM.png'
-  },
-];
 function ProjectCard({ project }: { project: Project }) {
   return (
     <div
@@ -96,11 +54,6 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects() {
   const [currentPage, setCurrentPage] = useState(0);
-
-  // Logic: 
-  // Mobile: Slide 0 to Length-1
-  // Desktop: Slide 0 to Length-2 (Because we show 2 items at a time)
-  // We use Math.max(1, ...) to handle edge case if there is only 1 project
   const maxPageMobile = projects.length;
   const maxPageDesktop = Math.max(1, projects.length - 1);
 
@@ -150,14 +103,34 @@ export default function Projects() {
             <div className="flex justify-center items-center gap-6 mt-6">
               <button
                 onClick={prevPageMobile}
-                className="w-14 h-14 flex items-center justify-center bg-yellow-500 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
+                className="
+                            w-14 h-14 flex items-center justify-center
+                            bg-white
+                            border-4 border-black
+                            shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                            active:bg-yellow-500
+                            active:shadow-none
+                            active:translate-x-[2px]
+                            active:translate-y-[2px]
+                            transition-all
+                          "
               >
                 <ChevronLeft className="w-8 h-8" />
               </button>
               
               <button
                 onClick={nextPageMobile}
-                className="w-14 h-14 flex items-center justify-center bg-yellow-500 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
+                className="
+                            w-14 h-14 flex items-center justify-center
+                            bg-white
+                            border-4 border-black
+                            shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                            active:bg-yellow-500
+                            active:shadow-none
+                            active:translate-x-[2px]
+                            active:translate-y-[2px]
+                            transition-all
+                          "
               >
                 <ChevronRight className="w-8 h-8" />
               </button>
@@ -183,14 +156,14 @@ export default function Projects() {
             {/* Controls */}
             <div className="flex justify-center items-center gap-6 mt-8">
               <button
-                onClick={prevPage} // Use prevPageMobile for mobile view section
+                onClick={prevPage}
                 className="w-14 h-14 flex items-center justify-center bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-500 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all group"
               >
                 <ChevronLeft className="w-8 h-8 transition-colors" />
               </button>
               
               <button
-                onClick={nextPage} // Use nextPageMobile for mobile view section
+                onClick={nextPage}
                 className="w-14 h-14 flex items-center justify-center bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-500 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all group"
               >
                 <ChevronRight className="w-8 h-8 transition-colors" />
