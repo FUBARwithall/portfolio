@@ -10,7 +10,7 @@ export default function Footer() {
           
           {/* Identity */}
           <span className="font-medium text-sm text-black">
-            © 2025 JustParadis
+            © 2026 JustParadis
           </span>
 
           {/* Source Code */}
